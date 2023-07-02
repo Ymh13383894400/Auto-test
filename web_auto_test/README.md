@@ -1,3 +1,28 @@
+代码内容
+
+```
+auto_test
+    |-test_demo
+        |-cal.py
+        |-test_cal.py
+    |-web_auto_test
+    	|-scratch.py			#爬取网页内容
+    	|-test_scratch.py		#测试爬取的标题
+    	|-web_control.py		#selenium控制
+    	|-web_locate.py			#selenium定位元素
+    	|-web_search.py			#selenium自动化搜索
+        |-test_web_search.py	#测试web搜索
+        |-test_web_login.py		#测试web界面登录
+        |-README.md
+    |-interface_auto_test
+    |-README.md
+    |-requirments
+```
+
+
+
+
+
 ## web 浏览器控制
 
 |                 | 操作         | 使用场景            |
@@ -48,14 +73,14 @@
 | 输入内容 | send_keys(‘值’) |
 | 清空     | clear()         |
 
-```python
+```bash
 # 输入信息到输入框中
 # 点击输入框
-els = driver.find_element(By.ID, 'query').click()
+ele = driver.find_element(By.ID, 'query').click()
 # 输入关键字
-els.send_keys("清华大学")
+ele.send_keys("华北科技学院")
 # 清空输入框
-els.clear()
+ele.clear()
 ```
 
 
@@ -73,7 +98,7 @@ els.clear()
 - 安装allure，并配置环境
 - pip install 第三方库
 
- 下载地址：[allure/](123)
+ 下载地址：[Index of /allure/](https://download.ceshiren.com/allure/)
 解压下载后在path中配置allure bin目录的完整路径
 ![image](https://ceshiren.com/uploads/default/original/3X/f/0/f0ff4917c67e6e57b2252108758e2c2b19f99105.png) 
 
@@ -110,11 +135,11 @@ class TestTestsearch():
         self.driver.find_element(By.CSS_SELECTOR, ".sec-input-box").click()
         with allure.step("输入关键字"):
             self.driver.find_element(By.ID, "query").click()
-            self.driver.find_element(By.ID, "query").send_keys(清华大学")
+            self.driver.find_element(By.ID, "query").send_keys("华北科技学院")
         with allure.step("点击搜索按钮"):
             self.driver.find_element(By.ID, "stb").click()
         time.sleep(5)
-        assert self.driver.find_element(By.CSS_SELECTOR, ".vr-title > span").text == "清华大学"
+        assert self.driver.find_element(By.CSS_SELECTOR, ".vr-title > span").text == "华北科技学院"
 ```
 
 #### allure 拓展–添加截图
